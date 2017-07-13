@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  font: "微软雅黑", Arial;
+  font-size: 12px;
+}
+li {
+  list-style: none;
+}
+.wrap {
+  width: 500px;
+  margin: 100px auto 30px;
+}
+.wrap ul li {
+  float: left;
+  border: 1px solid #999;
+  border-radius: 5px;
+  color: #000;
+  padding: 5px 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.wrap ul li:hover {
+  background: red;
+  color: #fff;
+  border: 1px solid transparent;
+}
+.wrap ul li:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.wrap ul li.selected {
+  background: red;
+  color: #fff;
+  border: 1px solid transparent;
+}

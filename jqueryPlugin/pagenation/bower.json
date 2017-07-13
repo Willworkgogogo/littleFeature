@@ -1,0 +1,17 @@
+{
+  "name": "pagenation",
+  "homepage": "https://github.com/Willworkgogogo/Willworkgogogo.github.io",
+  "authors": [
+    "wangweiwei <will_workhard@163.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

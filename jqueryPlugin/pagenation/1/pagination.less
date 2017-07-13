@@ -1,0 +1,52 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+html, body{
+	font: "微软雅黑", Arial;
+	font-size: 12px;
+}
+li{
+	list-style: none;
+}
+
+// 未选中
+@page-border: #999;
+@page-color: #000;
+// 选中
+@page-bg-sel: red;
+@page-color-sel: #fff;
+.wrap{
+	width: 500px;
+	margin: 100px auto 30px;
+	ul {
+		li{
+			float: left;
+			border: 1px solid @page-border;
+			border-radius: 5px;
+			color:  @page-color;
+			padding: 5px 10px;
+			margin-right: 10px;
+			cursor: pointer;
+
+			&:hover{
+				.selected;
+			}
+			&:after{
+				content: " ";
+				display: block;
+				font-size: 0;
+				height: 0;
+				clear: both;
+				visibility: hidden;
+			}
+
+			&.selected{
+				background: @page-bg-sel;
+				color: @page-color-sel;
+				border: 1px solid transparent;
+			}
+		}
+	}
+}
+

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.watermarkOpacity_div{
+			width: 300px;
+			height: 300px;
+		}
+		.proNum {
+			padding-left: 16px;
+		}
+		.proNum input{
+			width: 70px;
+			height: 32px;
+			font-size: 14px;
+			color: #82899b;
+			margin: 7px 10px 0 0;
+			text-align: center;
+			border: 1px solid #d6dae3;
+			border-radius: 3px;
+		}
+
+		.proNum label{
+			color:#6c748a;
+			font-size:16px;
+		}
+
+		.watermarkOpacity_progress{
+			background: #eaebeb;
+			border-radius: 100px;
+			width: 245px;
+			height: 6px;
+			margin: 26px 0 0 16px;
+		}
+
+		.watermarkOpacity_progress p {
+			background: #1589f4;
+			border-radius: 100px;
+			width: 0;
+			height: 100%;
+			max-width: 100%;
+			min-width: 0;
+			position: relative;
+		}
+		.watermarkOpacity_progress p i{
+			background: #fff;
+			border-radius: 50%;
+			box-shadow: 0 0 3px 1px rgba(0,0,0,0.3);
+			width: 13px;
+			height: 13px;
+
+			position: absolute;
+			left: -6px;
+			top: -4px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="watermarkOpacity_div">
+		<div class="proNum">
+			<input type="text" id="opacity" value="0">
+			<label class="perCent">%</label>
+		</div>
+		<div class="watermarkOpacity_progress">
+			<p><i></i></p>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="../../bower_components/jquery/jquery.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			progress();
+
+			function progress() {
+				var dom = {
+					input: $(".proNum input"),
+					p 	 : $(".watermarkOpacity_progress p"),
+					btn  : $(".watermarkOpacity_progress i"),
+					wrap_div: $(".watermarkOpacity_progress")
+				};
+
+				var pro_w = $(".watermarkOpacity_progress").width();
+
+				// init 初始化
+				var per_num = dom.input.val(); // input值
+				var new_pro = pro_w * per_num / 100; // 宽度占比
+				$(".watermarkOpacity_progress p").css("width", new_pro);
+
+				// 改变百分比
+				dom.input.keyup(function() {
+					var input_v = $(this).val();
+
+					if (!/^\d+$/g.test(input_v)) {
+					dom.input.val(input_v.substring(0, input_v.length - 1));
+					// TODO 设置btn
+					}
+
+					// 最大最小值限制
+					if (Number($(this).val()) < 0) {
+						dom.input.val(0)
+					}else if (Number($(this).val()) >= 100) {
+						dom.input.val(100)
+					}
+
+					// 改变progress
+					var progress_w = Number($(this).val()) * pro_w / 100;
+					dom.p.css("width", progress)
+				});
+
+				// 拖拽
+				var dragging = false;
+				var iX, oX; // iX: ;  oX: ;
+				dom.btn.mousedown(function(ev) {
+					var ev = ev || window.event;
+					dragging = true;
+					iX = ev.clientX - this.offsetLeft - 6; // 点击时的起始位置
+					console.log(ev.clientX + " : " + this.offsetLeft )
+					console.log("iX: ", iX)
+					return false;
+				})
+
+				dom.wrap_div.mousemove(function(ev) {
+					if (dragging) {
+						var ev = ev || window.event;
+						oX = ev.clientX - iX; // 需要移动的距离
+						dom.p.css("width", oX);
+						dom.btn.css("left", oX);
+
+						var percent = oX / pro_w * 100;
+
+						if (oX <= 0) {
+							dom.input.val(0)
+						}else if (oX >= pro_w) {
+							dom.input.val(100)
+						}else{
+							dom.input.val(Math.round(percent))
+						}
+						return false;
+					}
+				})
+
+				$(document).mouseup(function() {
+					dragging = false;
+				})
+			}
+		})
+	</script>
+</body>
+</html>

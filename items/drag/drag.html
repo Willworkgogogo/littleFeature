@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="//code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script src="//code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="//code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	<meta charset="utf-8">
+	<title>JS Bin</title>
+	<style type="text/css">
+	.drag{
+		width: 300px;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+		border: 1px solid #000;
+		border-radius: 5px;
+		background-color: #e1e1e1;
+		cursor: move;
+	  
+		position: absolute;
+		left: 1px;
+		top: 1px;
+	}
+	.drag .dragContent{
+		width: 300px;
+		height: 150px;
+		border: 1px solid #000;
+		border-top: none;
+
+		position: absolute;
+		top: 30px;
+		left: 0;
+	}
+	</style>
+</head>
+<body>
+	<div class="drag">
+		点我拖拽
+		<div class="dragContent"></div>
+	</div>
+  	
+<script type="text/javascript" src="../bower_components/jquery/jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+	/**
+	* 需要封装
+	* 提取dom
+	* startDrag(触发拖拽对象bar，被拖拽对象box)
+	* html结构改写成：
+	*
+	*<div id="box">
+	*   <div id="main">
+	*       <div id="bar">拖拽</div>
+	*       <div id="content">
+	*           内容……
+	*       </div>
+	*   </div>
+	*</div>
+	*/
+	var drag = $('.drag');
+
+	drag.mousedown(function(ev) {
+		var ev    = ev || window.event;
+		var distX = ev.pageX - this.offsetLeft, // 鼠标到拖拽体左边的距离
+			distY = ev.pageY - this.offsetTop; 
+
+		// move
+		$(document).mousemove(function(ev) {
+			// 边界值判断
+			var dragLeft = parseInt(drag.css("left")), // div到左边距离
+				dragTop  = parseInt(drag.css("top")); // div到右边距离
+			var windowWidth = document.body.clientWidth
+							|| document.documentElement.clientWidth
+							|| window.innerWidth;
+			var windowHeight = document.body.clientHeight
+							|| document.documentElement.clientHeight
+							|| window.innerHeight;
+
+			var dragRight  = dragLeft + drag.outerWidth(true), // div到右边距离
+				dragBottom = dragTop + drag.outerHeight(true); // div到底部距离
+
+			var ev 	  = ev || window.event;
+			var moveX = ev.pageX - distX,
+				moveY = ev.pageY - distY;
+
+			/**
+			* 临界值的判断重新写，太生硬
+			*/ 
+			if (dragLeft < 0) {
+				moveX = 0;
+			}else if (dragTop < 0) {
+				moveY = 0;
+			}else if (dragRight > windowWidth) {
+				moveX = windowWidth - drag.outerWidth();
+			}else if (dragBottom > windowHeight) {
+				moveY = windowHeight - drag.outerHeight();
+			}
+
+			drag.css({
+				"left": moveX + "px",
+				"top": moveY + "px"
+			});
+		});
+
+		// mouseup
+		$(document).mouseup(function(){
+			console.log("mouseup")
+			$(this).off("mousemove");
+		})
+	});
+})
+</script>
+</body>
+</html>

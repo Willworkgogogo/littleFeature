@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分页</title>
+	<link rel="stylesheet" type="text/css" href="./pagination.css">
+	<script type="text/javascript" src="../bower_components/jquery/jquery.js"></script>
+	<script type="text/javascript" src="./jquery.pagination.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<ul>
+			<li class="first">首页</li>
+			<li class="pre">上一页</li>
+			<li class="pageNum">1</li>
+			<li class="pageNum">2</li>
+			<li class="pageNum">3</li>
+			<li class="pageNum">4</li>
+			<li class="pageNum">5</li>
+			<li class="next">下一页</li>
+			<li class="last">尾页</li>
+		</ul>
+	</div>
+
+	<script>
+		$(function(){
+			$('.wrap').Pagination()
+		})
+	</script>
+</body>
+</html>
