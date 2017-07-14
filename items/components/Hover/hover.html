@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./hover.css">
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+    <script src="../../bower_components/jquery/jquery.js"></script>
+    <script src="./CSSPlugin.min.js"></script>
+    <script src="./TweenLite.min.js"></script>
+    <script src="./EasePack.min.js"></script>
+</head>
+<body>
+    <h1>link hover styles</h1>
+    <section class="links">
+        <a class="link wipe" href="#">wipe</a>
+        <a class="link underline" href="#">underline</a>
+        <a id="slide-link" class="link slide" href="#"><span>slide</span></a>
+        <a class="link opacity" href="#">opacity</a>
+    </section>
+
+    <script>
+        $(function(){
+            var $slideLink = $("#slide-link"),
+                slideLinkText = $slideLink.find("span")[0];
+
+            $slideLink.on("mouseenter", linkOver);
+
+            function linkOver() {
+                TweenLite.to(slideLinkText, 0.3, {y: -25, ease: Cubic.easeIn, onComplete: function() {
+                    TweenLite.fromTo(slideLinkText, 0.3, {y: 25}, {y: 0, ease: Cubic.easeOut})
+                }});
+            }
+        })
+    </script>
+</body>
+</html>
