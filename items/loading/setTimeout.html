@@ -36,11 +36,17 @@
     <img src="http://cdn.feeyo.com/pic/20170603/201706031232376578.jpg" alt="">
 
     <script>
-        $(function() {
-            setTimeout(function() {
-                $('.loading').fadeOut()
-            }, 3000)
-        })
+//        $(function() {
+//            setTimeout(function() {
+//                $('.loading').fadeOut()
+//            }, 3000)
+//        })
+        document.onreadystatechange = function() {
+            console.log(document.readyState)
+            if(document.readyState = 'complete') {
+                $('.loading').fadeOut();
+            }
+        }
     </script>
 </body>
 </html>
