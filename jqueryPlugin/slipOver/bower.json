@@ -1,0 +1,17 @@
+{
+  "name": "slipOver",
+  "homepage": "https://github.com/Willworkgogogo/littleFeature",
+  "authors": [
+    "wangweiwei <will_workhard@163.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
