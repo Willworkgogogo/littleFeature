@@ -3,8 +3,31 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+    <link rel="stylesheet" href="./demo.css">
 </head>
 <body>
-	<p>write a slipover</p>
+<div class="wrap">
+    <ul class="clear">
+        <li><img src="../img/img1.jpeg" alt=""></li>
+        <li><img src="../img/img2.jpeg" alt=""></li>
+        <li><img src="../img/img3.jpeg" alt=""></li>
+        <li><img src="../img/img4.jpeg" alt=""></li>
+        <li><img src="../img/img5.jpeg" alt=""></li>
+        <li><img src="../img/img6.jpeg" alt=""></li>
+        <li><img src="../img/img7.jpeg" alt=""></li>
+        <li><img src="../img/img8.jpeg" alt=""></li>
+        <li><img src="../img/img9.jpeg" alt=""></li>
+        <li><img src="../img/img10.jpeg" alt=""></li>
+    </ul>
+</div>
+	
+
+<script src="../bower_components/jquery/jquery.js"></script>
+<script src="./sliphover.jquery.js"></script>
+<script>
+    $(function () {
+        $('img').slipHover()
+    })
+</script>
 </body>
 </html>

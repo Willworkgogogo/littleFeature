@@ -1,0 +1,43 @@
+*{
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+li{
+  list-style: none;
+}
+
+body{
+  background-color: #efefef;
+}
+.clear{
+  clear: both;
+  overflow: hidden;
+}
+.wrap{
+  width: 1000px;
+  margin: 0 auto;
+  background: #fff;
+  ul{
+    margin: 0 auto;
+    li{
+      float: left;
+      width: 30%;
+      height: auto;
+      border: 1px solid #bbbbbb;
+      margin-right: 5%;
+      margin-bottom: 10px;
+      &:nth-child(3n){
+        margin-right: 0;
+      }
+      img{
+        width: 100%;
+        height: auto;
+        border: none;
+        display: block;
+      }
+    }
+  }
+}
