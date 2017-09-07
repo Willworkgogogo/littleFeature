@@ -1,0 +1,117 @@
+.mui-checkbox {
+    -webkit-appearance: none;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    background-color: #FFFFFF;
+    border: solid 1px #d9d9d9;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-clip: padding-box;
+    display: inline-block; }
+    .mui-checkbox:focus {
+      outline: 0 none;
+      outline-offset: -2px; }
+    .mui-checkbox:checked {
+      background-color: #18b4ed;
+      border: solid 1px #FFFFFF; }
+      .mui-checkbox:checked:before {
+        display: inline-block;
+        margin-top: 1px;
+        margin-left: 2px;
+        font-family: iconfont;
+        content: "\e667";
+        color: #FFFFFF;
+        font-size: 18px; }
+    .mui-checkbox:disabled {
+      background-color: #d9d9d9;
+      border: solid 1px #d9d9d9; }
+      .mui-checkbox:disabled:before {
+        display: inline-block;
+        margin-top: 1px;
+        margin-left: 2px;
+        font-family: iconfont;
+        content: "\e667";
+        color: #FFFFFF;
+        font-size: 18px; }
+    .mui-checkbox.checkbox-green:checked {
+      background-color: #5cb85c; }
+    .mui-checkbox.checkbox-orange:checked {
+      background-color: #f0ad4e; }
+    .mui-checkbox.checkbox-s {
+      width: 19px;
+      height: 19px; }
+      .mui-checkbox.checkbox-s:before {
+        display: inline-block;
+        margin-top: 1px;
+        margin-left: 2px;
+        font-family: iconfont;
+        content: "\e667";
+        color: #FFFFFF;
+        font-size: 13px; }
+   
+  .mui-checkbox-anim {
+    -webkit-transition: background-color ease 0.2s;
+            transition: background-color ease 0.2s; }
+
+            @mixin checkedCon($fs:18px) {
+                &:before {
+                  display: inline-block;
+                  margin-top: 1px;
+                  margin-left: 2px;
+                  font-family: iconfont;
+                  content: "\e667";
+                  color: #FFFFFF;
+                  font-size: $fs;
+                }
+              }
+              $duration: .4s;
+              .mui-checkbox {
+                -webkit-appearance: none;
+                position: relative;
+                width: 25px;
+                height: 25px;
+                margin-right: 10px;
+                background-color: #FFFFFF;
+                border: solid 1px #d9d9d9;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+                background-clip: padding-box;
+                display: inline-block;
+                &:focus {
+                  outline: 0 none;
+                  outline-offset: -2px
+                }
+                &:checked {
+                  background-color: #18b4ed;
+                  border: solid 1px #FFFFFF;
+                  @include checkedCon();
+                }
+                &:disabled {
+                  background-color: #d9d9d9;
+                  border: solid 1px #d9d9d9;
+                  @include checkedCon();
+                }
+                &.checkbox-green:checked {
+                  background-color: #5cb85c;
+                }
+                &.checkbox-orange:checked {
+                  background-color: #f0ad4e;
+                }
+                &.checkbox-s {
+                  width: 19px;
+                  height: 19px;
+                  @include checkedCon(13px);
+                }
+              }
+               
+              .mui-checkbox-anim{
+                //border等其他元素不做过渡效果，增加视觉差，更有动画效果
+                transition: background-color ease $duration/2;
+               
+              }
