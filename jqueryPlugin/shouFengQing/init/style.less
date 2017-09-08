@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  ul{
+    @li-height: 50px;
+    @li-max-height: 600px;
+    width: 300px;
+    height: auto;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    li{
+      height: @li-height;
+      line-height: @li-height;
+      border-bottom: 1px dashed #e4e4e4;
+      list-style: none;
+      &.max{
+        height: @li-max-height;
+      }
+      &:nth-last-child(1){
+        border: none;
+      }
+    }
+  }

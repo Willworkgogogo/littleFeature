@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  width: 300px;
+  height: auto;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+}
+ul li {
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px dashed #e4e4e4;
+  list-style: none;
+}
+ul li.max {
+  height: 600px;
+}
+ul li:nth-last-child(1) {
+  border: none;
+}
