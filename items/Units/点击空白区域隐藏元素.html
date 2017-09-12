@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击空白区域隐藏元素</title>
+    <style>
+        *{
+            marign: 0;
+            padding: 0;
+        }
+        #wrap{
+            width: 400px;
+            height: 300px;
+            background: #999999;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        }
+        .btn{
+            color: dodgerblue;
+            font-size: 14px;
+            text-align: right;
+            padding-right: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <p class="btn">关闭</p>
+    </div>
+
+    <script src="../bower_components/jquery/jquery.js"></script>
+    <script>
+        $(function() {
+            $(document).on('click', function (e) {
+                var e = e || window.event,
+                    ele = e.target || e.srcElement;
+                /*
+                * 终止条件是html.parentNode不存在
+                * */
+                while(ele) {
+                    if (ele.id && ele.id == "wrap") {
+                        return
+                    }
+                    /*
+                    * 这里是循环的条件
+                    * 巧妙！！！检查父元素，利用冒泡，判断是否是特定元素的子元素
+                    * 知道检查到html元素才停止循环
+                    * */
+                    ele = ele.parentNode;
+                }
+
+                document.querySelector('#wrap').style.display = 'none';
+            })
+        })
+    </script>
+</body>
+</html>
