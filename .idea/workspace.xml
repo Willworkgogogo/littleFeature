@@ -5,7 +5,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uiPage/black/base.css" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uiPage/black/index.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uiPage/black/style.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/items/scroll/index.html" afterPath="$PROJECT_DIR$/items/scroll/plugin/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -213,7 +212,7 @@
       <workItem from="1500825254079" duration="81000" />
       <workItem from="1501778311643" duration="14000" />
       <workItem from="1505205939245" duration="2337000" />
-      <workItem from="1505489253454" duration="3743000" />
+      <workItem from="1505489253454" duration="3762000" />
     </task>
     <task id="LOCAL-00001" summary="loading 定时去除loading加载">
       <created>1500547390423</created>
@@ -236,11 +235,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505490883154</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="scrollbar插件使用">
+      <created>1505494797531</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1505494797531</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9331000" />
+    <option name="totallyTimeSpent" value="9350000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -274,7 +280,8 @@
     <MESSAGE value="loading 定时去除loading加载" />
     <MESSAGE value="点击空白区域隐藏指定元素" />
     <MESSAGE value="scrollbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="scrollbar" />
+    <MESSAGE value="scrollbar插件使用" />
+    <option name="LAST_COMMIT_MESSAGE" value="scrollbar插件使用" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

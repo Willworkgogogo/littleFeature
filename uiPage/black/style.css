@@ -1,0 +1,35 @@
+body{
+    background-color: #222; /*#222的黑色很经典*/
+    color: #eee; /*搭配使用#eee的灰色*/
+    font-size: 14px;
+    font-family: "Verdana",Geneva,sans-serif;
+    margin: 0;
+    padding: 0;
+    min-width: 480px;
+}
+
+a{
+    color: #666;
+    -webkit-transition: all .3s ease-in-out ;
+    -moz-transition: all .3s ease-in-out ;
+    -ms-transition: all .3s ease-in-out ;
+    -o-transition: all .3s ease-in-out ;
+    transition: all .3s ease-in-out ;
+}
+a:hover{
+    color: #fff;
+    text-decoration: none;
+}
+
+/*
+* 对hr的细节处理，简单的设计，使得线条更具立体和美感，不错
+*/
+hr{
+    background-color: transparent;
+    height: 0;
+    border: none; /* 这必须要加这属性，不然左右会有留白*/
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid rgba(0,0,0,0.9);
+    margin: 0; /*hr元素自带上下7px的margin值*/
+    clear: both;
+}
